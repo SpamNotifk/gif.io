@@ -33,6 +33,26 @@ saveBtn.addEventListener('click', () => {
     phone: document.getElementById('phone').value,
   };
 
+  // إنشاء ملف JSON وحفظه
+  const dataStr = JSON.stringify(userData, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  // إنشاء رابط للتنزيل
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'user_data.json';
+  a.click();
+
+  // تحرير الموارد
+  URL.revokeObjectURL(url);
+
+  // تسجيل الدخول
+  localStorage.setItem('isLoggedIn', true);
+  formScreen.classList.add('hidden');
+  searchScreen.classList.remove('hidden');
+});
+
   // تخزين بيانات المستخدم وحالة تسجيل الدخول
   localStorage.setItem('userData', JSON.stringify(userData));
   localStorage.setItem('isLoggedIn', true);
