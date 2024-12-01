@@ -1,69 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مرتي وين</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرتي وين</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
-    <!-- الصفحة الأولى -->
-    <div id="welcome-screen" class="screen">
-      <h1>أهلا بك في تطبيق "مرتي وين"</h1>
+    <div id="app">
+        <!-- الصفحة الأولى: الترحيب -->
+        <section id="welcome-screen" class="screen">
+            <h1>أهلاً بك في تطبيق "مرتي وين"</h1>
+        </section>
+
+        <!-- الصفحة الثانية: إدخال المعلومات -->
+        <section id="form-screen" class="screen hidden">
+            <h2>املأ بياناتك</h2>
+            <form id="user-form">
+                <label>الاسم: <input type="text" id="name" required></label>
+                <label>العمر: <input type="number" id="age" required></label>
+                <label>الجنس:
+                    <select id="gender">
+                        <option value="male">ذكر</option>
+                        <option value="female">أنثى</option>
+                    </select>
+                </label>
+                <label>المحافظة:
+                    <select id="province">
+                        <!-- سيتم توليد المحافظات تلقائيًا -->
+                    </select>
+                </label>
+                <label>نسبة جمالك: <input type="number" id="beauty" min="0" max="100" required></label>
+                <label>يوزر تلغرام: <input type="text" id="telegram"></label>
+                <label>يوزر انستقرام: <input type="text" id="instagram"></label>
+                <label>رقم الهاتف (اختياري): <input type="text" id="phone"></label>
+                <button type="submit">حفظ</button>
+            </form>
+        </section>
+
+        <!-- الصفحة الثالثة: البحث -->
+        <section id="search-screen" class="screen hidden">
+            <h2>البحث عن شريك</h2>
+            <button id="search-btn">ابحث الآن</button>
+            <div id="search-results"></div>
+        </section>
     </div>
 
-    <!-- الصفحة الثانية -->
-    <div id="form-screen" class="screen hidden">
-      <h2>املأ معلوماتك</h2>
-      <form id="user-form">
-        <label>الاسم: <input type="text" id="name" required></label>
-        <label>العمر: <input type="number" id="age" required></label>
-        <label>الجنس: 
-          <select id="gender" required>
-            <option value="ذكر">ذكر</option>
-            <option value="أنثى">أنثى</option>
-          </select>
-        </label>
-        <label>المحافظة:
-          <select id="province" required>
-            <option value="بغداد">بغداد</option>
-            <option value="البصرة">البصرة</option>
-            <option value="النجف">النجف</option>
-            <option value="كربلاء">كربلاء</option>
-            <option value="نينوى">نينوى</option>
-            <option value="السليمانية">السليمانية</option>
-            <option value="أربيل">أربيل</option>
-            <option value="دهوك">دهوك</option>
-            <option value="ديالى">ديالى</option>
-            <option value="واسط">واسط</option>
-            <option value="ذي قار">ذي قار</option>
-            <option value="المثنى">المثنى</option>
-            <option value="ميسان">ميسان</option>
-            <option value="القادسية">القادسية</option>
-            <option value="الأنبار">الأنبار</option>
-            <option value="بابل">بابل</option>
-            <option value="صلاح الدين">صلاح الدين</option>
-            <option value="كركوك">كركوك</option>
-            <option value="حلبجة">حلبجة</option>
-          </select>
-        </label>
-        <label>نسبة جمالك: <input type="number" id="beauty" required></label>
-        <label>يوزر تلجرام: <input type="text" id="telegram" required></label>
-        <label>يوزر انستقرام: <input type="text" id="instagram" required></label>
-        <label>رقم الهاتف (اختياري): <input type="text" id="phone"></label>
-        <button type="button" id="save-btn">حفظ</button>
-      </form>
-    </div>
-
-    <!-- الصفحة الثالثة -->
-    <div id="search-screen" class="screen hidden">
-      <h2>البحث عن مستخدم مشابه</h2>
-      <button id="search-btn">ابحث الآن</button>
-      <div id="search-results"></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
